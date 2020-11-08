@@ -1,16 +1,25 @@
 package hibernateRelations;
 
+import javax.persistence.*;
+
+@Entity
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
     private String lastName;
     private String PESEL;
     private int age;
-    private String adress;
 
+    public Person(String firstName, String lastName, String PESEL, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.PESEL = PESEL;
+        this.age = age;
+    }
     public Person (){
-
     }
 
     public Long getId() {
@@ -53,13 +62,14 @@ public class Person {
         this.age = age;
     }
 
-    public String getAdress() {
-        return adress;
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", PESEL='" + PESEL + '\'' +
+                ", age=" + age + '\'';
     }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
 
 }
