@@ -1,6 +1,5 @@
 package hibernateRelations;
 
-import javax.persistence.OneToOne;
 
 public class Person {
 
@@ -10,23 +9,12 @@ public class Person {
     private String PESEL;
     private int age;
 
-    @OneToOne
-    private Adress adress;
 
-    public Adress getAdress() {
-        return adress;
-    }
-
-    public void setAdress(Adress adress) {
-        this.adress = adress;
-    }
-
-    public Person(String firstName, String lastName, String PESEL, int age, Adress adress) {
+    public Person(String firstName, String lastName, String PESEL, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.PESEL = PESEL;
         this.age = age;
-        this.adress = adress;
     }
 
     public Person (){
@@ -81,7 +69,6 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 ", PESEL='" + PESEL + '\'' +
                 ", age=" + age +
-                ", adress=" + adress +
                 '}';
     }
 }
