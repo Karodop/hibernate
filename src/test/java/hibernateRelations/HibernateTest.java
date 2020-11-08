@@ -47,13 +47,13 @@ class PersonTest {
         personRepository.save(person4);
         personRepository.save(person5);
 
-
     }
 
     @Test
-    public void person2Have1Adress() {
-        List<Adress> adressBelongToPerson2 = adressRepository.findAll();
-        System.out.println("result adress" + adressBelongToPerson2);
+    public void personHaveAdress() {
+        List<Adress> adressToPerson = adressRepository.findAll();
+
+        System.out.println("result adress" + adressToPerson);
     }
 
 }
