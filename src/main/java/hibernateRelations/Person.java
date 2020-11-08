@@ -1,14 +1,29 @@
 package hibernateRelations;
 
 
+import javax.persistence.*;
+
+@Entity
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
     private String lastName;
     private String PESEL;
     private int age;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Adress adress;
+
+    public Adress getAdress() {
+        return adress;
+    }
+
+    public void setAdress(Adress adress) {
+        this.adress = adress;
+    }
 
     public Person(String firstName, String lastName, String PESEL, int age) {
         this.firstName = firstName;
@@ -65,10 +80,6 @@ public class Person {
     public String toString() {
         return "Person{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", PESEL='" + PESEL + '\'' +
-                ", age=" + age +
                 '}';
     }
 }
