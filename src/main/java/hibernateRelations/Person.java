@@ -13,6 +13,13 @@ public class Person {
     @OneToOne
     private Adress adress;
 
+    public Adress getAdress() {
+        return adress;
+    }
+
+    public void setAdress(Adress adress) {
+        this.adress = adress;
+    }
 
     public Person(String firstName, String lastName, String PESEL, int age, Adress adress) {
         this.firstName = firstName;

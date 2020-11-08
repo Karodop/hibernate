@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -54,6 +55,16 @@ class PersonTest {
         List<Adress> adressToPerson = adressRepository.findAll();
 
         System.out.println("result adress" + adressToPerson);
+    }
+    @Test
+
+    public void should(){
+
+        List<Person> persons = personRepository.findAll();
+
+        persons.stream().forEach(person -> assertThat(person.getAdress()).isNotNull());
+
+
     }
 
 }

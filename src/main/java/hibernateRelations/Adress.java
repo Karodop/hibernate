@@ -19,7 +19,6 @@ public class Adress {
         this.postalCode = postalCode;
         this.city = city;
         this.streetName = streetName;
-
     }
 
     public Adress (){
