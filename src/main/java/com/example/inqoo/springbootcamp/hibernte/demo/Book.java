@@ -1,9 +1,9 @@
 package com.example.inqoo.springbootcamp.hibernte.demo;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
@@ -85,6 +85,19 @@ public class Book {
 
     public void setPageCount(Integer pageCount) {
         this.pageCount = pageCount;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", ISBN='" + ISBN + '\'' +
+                ", edition=" + edition +
+                ", title='" + title + '\'' +
+                ", editionDate=" + editionDate +
+                ", coverType='" + coverType + '\'' +
+                ", pageCount=" + pageCount +
+                '}';
     }
 
 }

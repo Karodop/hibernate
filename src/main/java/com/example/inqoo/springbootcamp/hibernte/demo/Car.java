@@ -1,9 +1,9 @@
 package com.example.inqoo.springbootcamp.hibernte.demo;
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Car {
@@ -18,7 +18,9 @@ public class Car {
     private Integer doors;
     private String color;
 
-    public Car (){}
+    public Car (){
+
+    }
 
     public Car(String brand, String model, String engineType, Integer power, Integer doors, String color) {
         this.brand = brand;
@@ -84,4 +86,20 @@ public class Car {
     public void setColor(String color) {
         this.color = color;
     }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineType='" + engineType + '\'' +
+                ", power=" + power +
+                ", doors=" + doors +
+                ", color='" + color + '\'' +
+                '}';
+    }
+
+
 }
