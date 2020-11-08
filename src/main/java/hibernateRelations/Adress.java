@@ -14,18 +14,6 @@ public class Adress {
     private String postalCode;
 
 
-    @OneToOne
-    private Person person;
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
-
     public Adress(String city, String streetName, int houseNr, String postalCode) {
         this.houseNr = houseNr;
         this.postalCode = postalCode;

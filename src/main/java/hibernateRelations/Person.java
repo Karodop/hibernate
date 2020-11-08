@@ -1,5 +1,7 @@
 package hibernateRelations;
 
+import javax.persistence.OneToOne;
+
 public class Person {
 
     private Long id;
@@ -7,7 +9,18 @@ public class Person {
     private String lastName;
     private String PESEL;
     private int age;
-    private String adress;
+
+    @OneToOne
+    private Adress adress;
+
+
+    public Person(String firstName, String lastName, String PESEL, int age, Adress adress) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.PESEL = PESEL;
+        this.age = age;
+        this.adress = adress;
+    }
 
     public Person (){
 
@@ -52,14 +65,5 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
-
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
 
 }
