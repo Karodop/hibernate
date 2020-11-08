@@ -1,13 +1,40 @@
 package hibernateRelations;
 
+import javax.persistence.*;
+
+@Entity
 public class Adress {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String city;
     private String streetName;
+    private int houseNr;
+    private String postalCode;
+
+
+    @OneToOne
+    private Person person;
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+
+    public Adress(String city, String streetName, int houseNr, String postalCode) {
+        this.houseNr = houseNr;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.streetName = streetName;
+
+    }
 
     public Adress (){
-
     }
 
     public Long getId() {
@@ -34,11 +61,11 @@ public class Adress {
         this.streetName = streetName;
     }
 
-    public String getHouseNr() {
+    public int getHouseNr() {
         return houseNr;
     }
 
-    public void setHouseNr(String houseNr) {
+    public void setHouseNr(int houseNr) {
         this.houseNr = houseNr;
     }
 
@@ -50,16 +77,15 @@ public class Adress {
         this.postalCode = postalCode;
     }
 
-    public String getPerson() {
-        return person;
+    @Override
+    public String toString() {
+        return "Adress{" +
+                "id=" + id +
+                ", city='" + city + '\'' +
+                ", streetName='" + streetName + '\'' +
+                ", houseNr='" + houseNr + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                '}';
     }
-
-    public void setPerson(String person) {
-        this.person = person;
-    }
-
-    private String houseNr;
-    private String postalCode;
-    private String person;
 
 }
